@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class estrutura_condicional {
     public static void main(String[] args){
         String nome;
@@ -27,7 +28,7 @@ public class estrutura_condicional {
                 if(media >= 6){
                     System.out.println("Aprovado");
                 }
-                if(media < 6 && media >= 3){
+                else if(media < 6 && media >= 3){
                     System.out.println("Recuperação");
                 }
                 else{
@@ -36,7 +37,15 @@ public class estrutura_condicional {
                 break;
             
             case 2:
-                System.out.println("Ano bissexto");
+                System.out.println("Ano bissexto\n");
+                System.out.println("Informe o ano: ");
+                int ano = sc.nextInt();
+                if(ano % 4 == 0 && ano % 100 != 0 || ano % 400 == 0){
+                    System.out.println("Ano bissexto");
+                }
+                else{
+                    System.out.println("Ano não bissexto");
+                }
                 break;
 
             default:
