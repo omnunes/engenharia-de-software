@@ -13,7 +13,8 @@ public class estrutura_condicional {
         System.out.println("Olá " +nome+ " digite a opção desejada");
         System.out.println("1 - Verificar média\n" + 
                            "2 - Verificar ano bissexto\n" + 
-                           "3 - Sair");
+                           "3 - Verificar numero primo\n" + 
+                           "0 - Sair");
         opcaoMenu = sc.nextInt();
 
         switch(opcaoMenu){
@@ -48,6 +49,18 @@ public class estrutura_condicional {
                 }
                 break;
 
+            case 3:
+                int n;
+                int cont = 0;
+                for(int i = 1; i < (n + 1); i++){
+                    if(n % i == 0){
+                        cont++;
+                    }
+                }
+                break;
+                
+            System.out.println(cont == 2);
+                
             default:
                 System.out.println("Programa encerrado.");
                 break; 
