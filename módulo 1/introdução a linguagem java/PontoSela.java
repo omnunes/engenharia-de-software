@@ -1,31 +1,37 @@
-import java.util.Scanner;
-
 public class PontoSela {
     public static void main(String[] args){
-        int[][] matriz = {{9,8,7},
-                          {5,3,2},
-                          {6,6,7}}; // Matriz 3x3
+        int[][] matriz = {{1,3,5},
+                          {2,4,6},
+                          {7,8,9}};
         boolean foundPontoSela = false;
+
         for(int i = 0; i < matriz.length; i++){
-            int menor = matriz[i][0];
-            int coluna = 0;
-            for(int j = 0; j < matriz[i].length; j++){
-                if(matriz[i][j] < menor){
-                    menor = matriz[i][j];
-                    coluna = j;
+            int minLinha = matriz[i][0];
+            int minColuna = 0;
+            
+            // Encontra o menor valor da linha
+            for(int j = 1; j < matriz[i].length; j++){
+                if(matriz[i][j] < minLinha){
+                    minLinha = matriz[i][j];
+                    minColuna = j;
                 }
             }
-            int maior = matriz[i][coluna];
+            boolean maiorNaColuna = true;
             for(int k = 0; k < matriz.length; k++){
-                if(matriz[k][coluna] > maior){
-                    maior = matriz[k][coluna];
+                if(matriz[k][minColuna] > minLinha){
+                    maiorNaColuna = false;
+                    break;
                 }
             }
-            if(maior == menor){
-                System.out.println("Ponto de sela encontrado na linha " +i+ " coluna " +coluna);
+            if(maiorNaColuna){
+                System.out.println("Ponto de sela encontrado: "+minLinha+ ", na posição ("+i+ ", "+minColuna+ ")");
                 foundPontoSela = true;
             }
         }
-    }
+        
+        if(!foundPontoSela){
+            System.out.println("Não há ponto de sela na matriz");
+        }
     
+    }
 }
